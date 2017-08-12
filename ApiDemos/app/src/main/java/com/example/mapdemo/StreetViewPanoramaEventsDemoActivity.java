@@ -95,7 +95,20 @@ public class StreetViewPanoramaEventsDemoActivity extends AppCompatActivity
                         }
                     }
                 });
+        // add back arrow to toolbar
+        if (getSupportActionBar() != null){
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+            getSupportActionBar().setDisplayShowHomeEnabled(true);
+        }
+
     }
+
+    @Override
+    public boolean onSupportNavigateUp() {
+        onBackPressed();
+        return true;
+    }
+
 
     @Override
     public void onStreetViewPanoramaChange(StreetViewPanoramaLocation location) {

@@ -54,7 +54,20 @@ public class ProgrammaticDemoActivity extends AppCompatActivity implements OnMap
             fragmentTransaction.commit();
         }
         mapFragment.getMapAsync(this);
+        // add back arrow to toolbar
+        if (getSupportActionBar() != null){
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+            getSupportActionBar().setDisplayShowHomeEnabled(true);
+        }
+
     }
+
+    @Override
+    public boolean onSupportNavigateUp() {
+        onBackPressed();
+        return true;
+    }
+
 
     @Override
     public void onMapReady(GoogleMap map) {

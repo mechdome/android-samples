@@ -51,7 +51,20 @@ public class RawMapViewDemoActivity extends AppCompatActivity implements OnMapRe
         mMapView.onCreate(mapViewBundle);
 
         mMapView.getMapAsync(this);
+        // add back arrow to toolbar
+        if (getSupportActionBar() != null){
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+            getSupportActionBar().setDisplayShowHomeEnabled(true);
+        }
+
     }
+
+    @Override
+    public boolean onSupportNavigateUp() {
+        onBackPressed();
+        return true;
+    }
+
 
     @Override
     public void onSaveInstanceState(Bundle outState) {

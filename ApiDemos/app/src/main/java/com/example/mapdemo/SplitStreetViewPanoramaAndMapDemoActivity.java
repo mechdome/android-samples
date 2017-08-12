@@ -91,7 +91,20 @@ public class SplitStreetViewPanoramaAndMapDemoActivity extends AppCompatActivity
                         .draggable(true));
             }
         });
+        // add back arrow to toolbar
+        if (getSupportActionBar() != null){
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+            getSupportActionBar().setDisplayShowHomeEnabled(true);
+        }
+
     }
+
+    @Override
+    public boolean onSupportNavigateUp() {
+        onBackPressed();
+        return true;
+    }
+
 
     @Override
     protected void onSaveInstanceState(Bundle outState) {

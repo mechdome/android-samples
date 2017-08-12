@@ -62,7 +62,20 @@ public class LiteListDemoActivity extends AppCompatActivity {
         AbsListView lv = mList.getListView();
         lv.setRecyclerListener(mRecycleListener);
 
+        // add back arrow to toolbar
+        if (getSupportActionBar() != null){
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+            getSupportActionBar().setDisplayShowHomeEnabled(true);
+        }
+
     }
+
+    @Override
+    public boolean onSupportNavigateUp() {
+        onBackPressed();
+        return true;
+    }
+
 
     /**
      * Adapter that displays a title and {@link com.google.android.gms.maps.MapView} for each item.

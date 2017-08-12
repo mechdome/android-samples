@@ -51,7 +51,20 @@ public class MapInPagerDemoActivity extends AppCompatActivity {
         // This is required to avoid a black flash when the map is loaded.  The flash is due
         // to the use of a SurfaceView as the underlying view of the map.
         mPager.requestTransparentRegion(mPager);
+        // add back arrow to toolbar
+        if (getSupportActionBar() != null){
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+            getSupportActionBar().setDisplayShowHomeEnabled(true);
+        }
+
     }
+
+    @Override
+    public boolean onSupportNavigateUp() {
+        onBackPressed();
+        return true;
+    }
+
 
     /** A simple fragment that displays a TextView. */
     public static class TextFragment extends Fragment {

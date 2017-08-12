@@ -81,7 +81,20 @@ public class StreetViewPanoramaNavigationDemoActivity extends AppCompatActivity 
                     }
                 });
         mCustomDurationBar = (SeekBar) findViewById(R.id.duration_bar);
+        // add back arrow to toolbar
+        if (getSupportActionBar() != null){
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+            getSupportActionBar().setDisplayShowHomeEnabled(true);
+        }
+
     }
+
+    @Override
+    public boolean onSupportNavigateUp() {
+        onBackPressed();
+        return true;
+    }
+
 
     /**
      * When the panorama is not ready the PanoramaView cannot be used. This should be called on

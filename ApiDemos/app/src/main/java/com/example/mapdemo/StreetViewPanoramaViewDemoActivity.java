@@ -57,7 +57,20 @@ public class StreetViewPanoramaViewDemoActivity extends AppCompatActivity {
             mStreetViewBundle = savedInstanceState.getBundle(STREETVIEW_BUNDLE_KEY);
         }
         mStreetViewPanoramaView.onCreate(mStreetViewBundle);
+        // add back arrow to toolbar
+        if (getSupportActionBar() != null){
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+            getSupportActionBar().setDisplayShowHomeEnabled(true);
+        }
+
     }
+
+    @Override
+    public boolean onSupportNavigateUp() {
+        onBackPressed();
+        return true;
+    }
+
 
     @Override
     protected void onResume() {
