@@ -15,7 +15,7 @@
      limitations under the License.
 -->
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.mapdemo" >
+    package="com.mechdome.maps.google" >
 
     <!--
          The ACCESS_COARSE/FINE_LOCATION permissions are not required to use
