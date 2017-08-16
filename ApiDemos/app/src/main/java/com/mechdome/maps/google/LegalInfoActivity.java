@@ -16,16 +16,18 @@
 
 package com.mechdome.maps.google;
 
-import com.google.android.gms.common.GooglePlayServicesUtil;
+import com.google.android.gms.common.GoogleApiAvailability;
+//import com.google.android.gms.common.GooglePlayServicesUtil;
 
-import android.app.Activity;
+//import android.app.Activity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.widget.TextView;
 
 /**
  * Activity to show legal information.
  */
-public class LegalInfoActivity extends Activity {
+public class LegalInfoActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,12 +36,25 @@ public class LegalInfoActivity extends Activity {
 
         TextView legalInfoTextView = (TextView) findViewById(R.id.legal_info);
         String openSourceSoftwareLicenseInfo =
-                GooglePlayServicesUtil.getOpenSourceSoftwareLicenseInfo(this);
+//                GooglePlayServicesUtil.getOpenSourceSoftwareLicenseInfo(this);
+                    GoogleApiAvailability.getInstance().getOpenSourceSoftwareLicenseInfo(this);
         if (openSourceSoftwareLicenseInfo != null) {
             legalInfoTextView.setText(openSourceSoftwareLicenseInfo);
         } else {
             legalInfoTextView.setText(R.string.play_services_not_installed);
         }
+        // add back arrow to toolbar
+        if (getSupportActionBar() != null){
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+            getSupportActionBar().setDisplayShowHomeEnabled(true);
+        }
+
+    }
+
+    @Override
+    public boolean onSupportNavigateUp() {
+        onBackPressed();
+        return true;
     }
 
 }
