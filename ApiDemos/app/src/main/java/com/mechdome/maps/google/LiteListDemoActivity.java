@@ -155,7 +155,7 @@ public class LiteListDemoActivity extends AppCompatActivity {
     private static void setMapLocation(GoogleMap map, NamedLocation data) {
         // Add a marker for this item and set the camera
         map.moveCamera(CameraUpdateFactory.newLatLngZoom(data.location, 13f));
-        map.addMarker(new MarkerOptions().position(data.location));
+//        map.addMarker(new MarkerOptions().position(data.location));
 
         // Set the map type back to normal.
         map.setMapType(GoogleMap.MAP_TYPE_NORMAL);
