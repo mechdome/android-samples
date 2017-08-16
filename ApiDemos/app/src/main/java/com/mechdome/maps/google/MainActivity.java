@@ -30,6 +30,8 @@ import android.widget.ArrayAdapter;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 
+import com.mechdome.aboutmechdome.DonateMechDomeActivity;
+
 /**
  * The main activity of the API library demo gallery.
  * <p>
@@ -99,6 +101,12 @@ public final class MainActivity extends AppCompatActivity
         // Handle item selection
         if (item.getItemId() == R.id.menu_legal) {
             startActivity(new Intent(this, LegalInfoActivity.class));
+            return true;
+        }
+        if (item.getItemId() == R.id.action_about_mechdome) {
+            Intent intentAboutMD = new Intent();
+            intentAboutMD.setClass(this, DonateMechDomeActivity.class);
+            startActivity(intentAboutMD);
             return true;
         }
         return super.onOptionsItemSelected(item);
