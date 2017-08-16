@@ -112,6 +112,9 @@ public class StyledMapDemoActivity extends AppCompatActivity implements OnMapRea
     public boolean onOptionsItemSelected(MenuItem item) {
         if (item.getItemId() == R.id.menu_style_choose) {
             showStylesDialog();
+        } else if (item.getItemId() == android.R.id.home) {
+            this.finish();
+            return true;
         }
         return true;
     }
