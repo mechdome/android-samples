@@ -169,6 +169,14 @@
             android:name=".VisibleRegionDemoActivity"
             android:label="@string/visible_region_demo_label"/>
 
+        <meta-data  android:name="md_large_donation"
+                    android:value="com.mechdome.maps.google.LargeMDDonation" />
+
+        <meta-data  android:name="md_medium_donation"
+                    android:value="com.mechdome.maps.google.MediumMDDonation" />
+
+        <meta-data  android:name="md_small_donation"
+                    android:value="com.mechdome.maps.google.SmallMDDonation" />
     </application>
 
 </manifest>
