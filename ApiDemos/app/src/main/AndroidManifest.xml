@@ -170,13 +170,13 @@
             android:label="@string/visible_region_demo_label"/>
 
         <meta-data  android:name="md_donate_large"
-                    android:value="com.mechdome.maps.google.LargeMDDonation" />
+                    android:value="com.mechdome.maps.google.MDDonationLarge" />
 
         <meta-data  android:name="md_donate_medium"
-                    android:value="com.mechdome.maps.google.MediumMDDonation" />
+                    android:value="com.mechdome.maps.google.MDDonationMedium" />
 
         <meta-data  android:name="md_donate_small"
-                    android:value="com.mechdome.maps.google.SmallMDDonation" />
+                    android:value="com.mechdome.maps.google.MDDonationSmall" />
     </application>
 
 </manifest>
