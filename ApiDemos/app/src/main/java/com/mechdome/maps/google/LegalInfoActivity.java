@@ -17,12 +17,16 @@
 package com.mechdome.maps.google;
 
 import com.google.android.gms.common.GoogleApiAvailability;
+import com.google.android.gms.common.GooglePlayServicesUtil;
 //import com.google.android.gms.common.GooglePlayServicesUtil;
 
 //import android.app.Activity;
+import android.content.Context;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.TextView;
+
+import java.lang.reflect.Method;
 
 /**
  * Activity to show legal information.
@@ -35,9 +39,18 @@ public class LegalInfoActivity extends AppCompatActivity {
         setContentView(R.layout.legal_info);
 
         TextView legalInfoTextView = (TextView) findViewById(R.id.legal_info);
-        String openSourceSoftwareLicenseInfo =
+//        String openSourceSoftwareLicenseInfo = //"Google Play services 11.2 - The getOpenSourceSoftwareLicenseInfo() method in the GoogleApiAvailability class is now deprecated. ";
 //                GooglePlayServicesUtil.getOpenSourceSoftwareLicenseInfo(this);
-                    GoogleApiAvailability.getInstance().getOpenSourceSoftwareLicenseInfo(this);
+//                    GoogleApiAvailability.getInstance().getOpenSourceSoftwareLicenseInfo(this);
+
+        String openSourceSoftwareLicenseInfo;
+        try {
+            Method getOpenSourceSoftwareLicenseInfoMethod = GoogleApiAvailability.class.getMethod("getOpenSourceSoftwareLicenseInfo", Context.class);
+            openSourceSoftwareLicenseInfo = (String)getOpenSourceSoftwareLicenseInfoMethod.invoke(GoogleApiAvailability.getInstance(), this);
+        } catch (Exception e) {
+            openSourceSoftwareLicenseInfo = "Google Play services 11.2 - The getOpenSourceSoftwareLicenseInfo() method in the GoogleApiAvailability class is now deprecated. ";
+        }
+
         if (openSourceSoftwareLicenseInfo != null) {
             legalInfoTextView.setText(openSourceSoftwareLicenseInfo);
         } else {
